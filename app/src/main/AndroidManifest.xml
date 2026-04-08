@@ -34,6 +34,7 @@
         <activity android:name=".ui.EditProductActivity" android:exported="false"
             android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".ui.RunSessionActivity" android:exported="false"/>
+        <activity android:name=".ui.LogSessionActivity" android:exported="false"/>
 
         <receiver android:name=".receivers.ReminderReceiver" android:exported="true">
             <intent-filter>
