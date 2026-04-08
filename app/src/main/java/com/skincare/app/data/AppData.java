@@ -15,6 +15,10 @@ public class AppData {
     public Map<Integer,Models.DayRoutine> routine=new HashMap<>();
     public List<Models.Product> products=new ArrayList<>();
     public Map<String,Models.CheckData> checks=new HashMap<>();
+    public ArrayList<Models.SkincareSession> sessions=new ArrayList<>();
+    public ArrayList<Models.SkinEntry> skinLogs=new ArrayList<>();
+    public ArrayList<Models.LogEntry> logs=new ArrayList<>();
+    private int nextId=1;
 
     private AppData(Context ctx){
         prefs=ctx.getApplicationContext().getSharedPreferences(PREFS,Context.MODE_PRIVATE);
@@ -32,6 +36,10 @@ public class AppData {
             .putString("routine",gson.toJson(routine))
             .putString("products",gson.toJson(products))
             .putString("checks",gson.toJson(checks))
+            .putString("sessions",gson.toJson(sessions))
+            .putString("skinLogs",gson.toJson(skinLogs))
+            .putString("logs",gson.toJson(logs))
+            .putInt("nextId",nextId)
             .apply();
     }
 
@@ -39,6 +47,10 @@ public class AppData {
         String rj=prefs.getString("routine",null);
         String pj=prefs.getString("products",null);
         String cj=prefs.getString("checks",null);
+        String sj=prefs.getString("sessions",null);
+        String slj=prefs.getString("skinLogs",null);
+        String lj=prefs.getString("logs",null);
+        nextId=prefs.getInt("nextId",1);
         if(rj!=null){
             Type t=new TypeToken<Map<Integer,Models.DayRoutine>>(){}.getType();
             routine=gson.fromJson(rj,t);
@@ -50,6 +62,18 @@ public class AppData {
         if(cj!=null){
             Type t=new TypeToken<Map<String,Models.CheckData>>(){}.getType();
             checks=gson.fromJson(cj,t);
+        }
+        if(sj!=null){
+            Type t=new TypeToken<ArrayList<Models.SkincareSession>>(){}.getType();
+            sessions=gson.fromJson(sj,t);
+        }
+        if(slj!=null){
+            Type t=new TypeToken<ArrayList<Models.SkinEntry>>(){}.getType();
+            skinLogs=gson.fromJson(slj,t);
+        }
+        if(lj!=null){
+            Type t=new TypeToken<ArrayList<Models.LogEntry>>(){}.getType();
+            logs=gson.fromJson(lj,t);
         }
     }
 
@@ -98,6 +122,42 @@ public class AppData {
         if(id==null||id.isEmpty()) return null;
         for(Models.Product p:products) if(p.id.equals(id)) return p;
         return null;
+    }
+
+    public Models.Product findProduct(int productId){
+        if(productId==0) return null;
+        for(Models.Product p:products){
+            try{ if(Integer.parseInt(p.id)==productId) return p; }
+            catch(NumberFormatException ignored){ /* product uses string id, skip */ }
+        }
+        return null;
+    }
+
+    public int newId(){
+        return nextId++;
+    }
+
+    public String todayDate(){
+        java.text.SimpleDateFormat fmt=new java.text.SimpleDateFormat("yyyy-MM-dd",java.util.Locale.US);
+        return fmt.format(new java.util.Date());
+    }
+
+    public String nowTime(){
+        java.text.SimpleDateFormat fmt=new java.text.SimpleDateFormat("HH:mm",java.util.Locale.US);
+        return fmt.format(new java.util.Date());
+    }
+
+    public Models.SkincareSession findSession(int sessionId){
+        for(Models.SkincareSession s:sessions) if(s.id==sessionId) return s;
+        return null;
+    }
+
+    public boolean completedToday(int sessionId){
+        String today=todayDate();
+        for(Models.LogEntry e:logs){
+            if(e.sessionId==sessionId&&today.equals(e.date)&&e.completed) return true;
+        }
+        return false;
     }
 
     public List<Models.Session> getAllSessionsWithReminders(){
