@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@color/bg">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:padding="12dp" android:background="@color/bg2">
+        <Button android:id="@+id/btn_back" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="← Cancel"
+            android:background="@android:color/transparent" android:textColor="@color/text_secondary"/>
+        <TextView android:id="@+id/tv_title" android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_weight="1"
+            android:gravity="center" android:textSize="17sp" android:textColor="@color/text_primary"
+            android:fontFamily="sans-serif-medium"/>
+        <Button android:id="@+id/btn_save" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Save"
+            android:background="@android:color/transparent" android:textColor="@color/green"
+            android:textSize="15sp"/>
+    </LinearLayout>
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="20dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="PRODUCT NAME" android:textColor="@color/text_muted" android:textSize="11sp"
+                android:letterSpacing="0.08" android:layout_marginBottom="6dp"/>
+            <EditText android:id="@+id/et_name" android:layout_width="match_parent" android:layout_height="48dp"
+                android:background="@drawable/input_bg" android:padding="12dp" android:textSize="15sp"
+                android:textColor="@color/text_primary" android:hint="e.g. CeraVe Foaming Wash"
+                android:layout_marginBottom="16dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="BRAND" android:textColor="@color/text_muted" android:textSize="11sp"
+                android:letterSpacing="0.08" android:layout_marginBottom="6dp"/>
+            <EditText android:id="@+id/et_brand" android:layout_width="match_parent" android:layout_height="48dp"
+                android:background="@drawable/input_bg" android:padding="12dp" android:textSize="15sp"
+                android:textColor="@color/text_primary" android:hint="e.g. CeraVe"
+                android:layout_marginBottom="16dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="TYPE" android:textColor="@color/text_muted" android:textSize="11sp"
+                android:letterSpacing="0.08" android:layout_marginBottom="6dp"/>
+            <Spinner android:id="@+id/spinner_type" android:layout_width="match_parent"
+                android:layout_height="48dp" android:background="@drawable/input_bg"
+                android:layout_marginBottom="16dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="KEY INGREDIENTS" android:textColor="@color/text_muted" android:textSize="11sp"
+                android:letterSpacing="0.08" android:layout_marginBottom="6dp"/>
+            <EditText android:id="@+id/et_ingredients" android:layout_width="match_parent"
+                android:layout_height="48dp" android:background="@drawable/input_bg" android:padding="12dp"
+                android:textSize="14sp" android:textColor="@color/text_primary"
+                android:hint="e.g. Ceramides, Niacinamide" android:layout_marginBottom="16dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="TARGETS / CONCERNS" android:textColor="@color/text_muted" android:textSize="11sp"
+                android:letterSpacing="0.08" android:layout_marginBottom="6dp"/>
+            <EditText android:id="@+id/et_concerns" android:layout_width="match_parent"
+                android:layout_height="48dp" android:background="@drawable/input_bg" android:padding="12dp"
+                android:textSize="14sp" android:textColor="@color/text_primary"
+                android:hint="e.g. Acne, Barrier support" android:layout_marginBottom="16dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="USAGE NOTES" android:textColor="@color/text_muted" android:textSize="11sp"
+                android:letterSpacing="0.08" android:layout_marginBottom="6dp"/>
+            <EditText android:id="@+id/et_notes" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:background="@drawable/input_bg"
+                android:padding="12dp" android:textSize="14sp" android:textColor="@color/text_primary"
+                android:hint="When and how to use this product" android:minLines="3"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@color/bg">
+
+    <!-- Header -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:background="@color/bg2"
+        android:padding="20dp" android:paddingBottom="12dp">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Skincare" android:textSize="26sp" android:textColor="@color/green"
+            android:fontFamily="sans-serif-medium"/>
+        <TextView android:id="@+id/tv_date" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="13sp"
+            android:textColor="@color/text_muted"/>
+    </LinearLayout>
+
+    <!-- Tab bar -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="48dp"
+        android:orientation="horizontal" android:background="@color/bg2"
+        android:paddingStart="16dp" android:paddingEnd="16dp" android:paddingBottom="8dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+            android:background="@drawable/tab_bar_bg" android:orientation="horizontal"
+            android:padding="4dp">
+            <TextView android:id="@+id/tab_tracker" android:layout_width="0dp"
+                android:layout_height="match_parent" android:layout_weight="1"
+                android:text="Tracker" android:gravity="center" android:textSize="13sp"
+                android:textColor="@color/text_muted" android:fontFamily="sans-serif-medium"/>
+            <TextView android:id="@+id/tab_routine" android:layout_width="0dp"
+                android:layout_height="match_parent" android:layout_weight="1"
+                android:text="Routine" android:gravity="center" android:textSize="13sp"
+                android:textColor="@color/text_muted" android:fontFamily="sans-serif-medium"/>
+            <TextView android:id="@+id/tab_products" android:layout_width="0dp"
+                android:layout_height="match_parent" android:layout_weight="1"
+                android:text="Products" android:gravity="center" android:textSize="13sp"
+                android:textColor="@color/text_muted" android:fontFamily="sans-serif-medium"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Content area -->
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:scrollbars="none">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+
+            <!-- TRACKER VIEW -->
+            <LinearLayout android:id="@+id/view_tracker" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="vertical">
+
+                <!-- Stats row -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginBottom="16dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="80dp"
+                        android:layout_weight="1" android:background="@drawable/card_white"
+                        android:orientation="vertical" android:gravity="center"
+                        android:layout_marginEnd="8dp">
+                        <TextView android:id="@+id/stat_today" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="0%"
+                            android:textSize="26sp" android:textColor="@color/green"
+                            android:fontFamily="sans-serif-medium"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="TODAY" android:textSize="10sp" android:textColor="@color/text_muted"
+                            android:letterSpacing="0.08"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="80dp"
+                        android:layout_weight="1" android:background="@drawable/card_white"
+                        android:orientation="vertical" android:gravity="center"
+                        android:layout_marginEnd="8dp">
+                        <TextView android:id="@+id/stat_steps" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="0"
+                            android:textSize="26sp" android:textColor="@color/text_primary"
+                            android:fontFamily="sans-serif-medium"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="STEPS" android:textSize="10sp" android:textColor="@color/text_muted"
+                            android:letterSpacing="0.08"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="80dp"
+                        android:layout_weight="1" android:background="@drawable/card_white"
+                        android:orientation="vertical" android:gravity="center">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="🔥" android:textSize="18sp"/>
+                        <TextView android:id="@+id/streak_num" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="0"
+                            android:textSize="20sp" android:textColor="@color/text_primary"
+                            android:fontFamily="sans-serif-medium"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="STREAK" android:textSize="10sp" android:textColor="@color/text_muted"
+                            android:letterSpacing="0.08"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Week grid -->
+                <LinearLayout android:id="@+id/week_grid" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="horizontal"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Day sessions -->
+                <LinearLayout android:id="@+id/day_card" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical"
+                    android:background="@drawable/card_white" android:padding="16dp"/>
+            </LinearLayout>
+
+            <!-- ROUTINE VIEW -->
+            <LinearLayout android:id="@+id/view_routine" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="vertical"
+                android:visibility="gone">
+                <LinearLayout android:id="@+id/routine_editor" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical"/>
+            </LinearLayout>
+
+            <!-- PRODUCTS VIEW -->
+            <LinearLayout android:id="@+id/view_products" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="vertical"
+                android:visibility="gone">
+                <LinearLayout android:id="@+id/product_grid" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

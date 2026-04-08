@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:padding="16dp" android:background="@color/card">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Overall rating" android:textColor="@color/text_muted" android:textSize="12sp" android:layout_marginBottom="4dp"/>
+    <SeekBar android:id="@+id/seekbar_rating" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:max="5" android:progress="3" android:thumbTint="@color/pink" android:progressTint="@color/pink" android:layout_marginBottom="12dp"/>
+    <CheckBox android:id="@+id/cb_acne" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Acne" android:textColor="@color/text_primary" android:textSize="14sp"/>
+    <CheckBox android:id="@+id/cb_dryness" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Dryness" android:textColor="@color/text_primary" android:textSize="14sp"/>
+    <CheckBox android:id="@+id/cb_oiliness" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Oiliness" android:textColor="@color/text_primary" android:textSize="14sp"/>
+    <CheckBox android:id="@+id/cb_redness" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Redness" android:textColor="@color/text_primary" android:textSize="14sp"/>
+    <CheckBox android:id="@+id/cb_sensitivity" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Sensitivity" android:textColor="@color/text_primary" android:textSize="14sp" android:layout_marginBottom="12dp"/>
+    <EditText android:id="@+id/et_notes" android:layout_width="match_parent" android:layout_height="80dp"
+        android:hint="Notes (optional)" android:textColor="@color/text_primary" android:textColorHint="@color/text_muted"
+        android:background="@drawable/input_bg" android:padding="10dp" android:textSize="13sp" android:gravity="top"/>
+</LinearLayout>
