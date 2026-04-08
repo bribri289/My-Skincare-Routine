@@ -59,7 +59,7 @@ public class LogSessionActivity extends AppCompatActivity {
         Models.LogEntry log=new Models.LogEntry();
         log.id=db.newId(); log.sessionId=session.id; log.sessionName=session.name;
         log.date=db.todayDate(); log.time=db.nowTime(); log.completed=true;
-        log.completedStepIds=completedIds;
+        log.completedStepIds=new ArrayList<>(completedIds);
         db.logs.add(0,log);
         // Update streak
         Models.SkincareSession s=db.findSession(session.id);
