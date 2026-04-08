@@ -14,4 +14,11 @@
     <color name="text_muted">#9B9B8F</color>
     <color name="divider">#E8E7E1</color>
     <color name="red">#A32D2D</color>
+
+    <!-- Missing colors referenced by layouts -->
+    <color name="card">#FFFFFF</color>
+    <color name="card2">#F7F6F3</color>
+    <color name="lavender">#B39DDB</color>
+    <color name="gold">#D4AF37</color>
+    <color name="mint">#7ED6C1</color>
 </resources>
